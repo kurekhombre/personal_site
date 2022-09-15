@@ -4,9 +4,56 @@
 {% block css_files %}
 <link rel="stylesheet" href="{% static 'portfolio/portfolio-styles.css' %}"
 {% endblock %}
-    <sction id="about-me">
 
-    </sction>
 {% block content %}
-<h2>Hello</h2>
+   <section id="about-me">
+        <nav>
+            <div class="personal__logo">Karol Kurek</div>
+            <ul class="nav__link--list">
+                <li>
+                    <a href="" class="nav__link--anchor link__hover--effect link__hover-effect--black">Tools</a>
+                </li>
+                <li>
+                    <a href="" class="nav__link--anchor link__hover--effect link__hover-effect--black">Projects</a>
+                </li>
+                <li>
+                    <a href="" class="nav__link--anchor nav__link--anchor-primary">Contact</a>
+                </li>
+            </ul>
+        </nav>
+       <div class="flex flex-1">
+           <div class="about-me__info row">
+               <div class="about-me__info--container">
+                   <figure class="about-me__picture--mask">
+                       <img src="{% static 'portfolio/me.JPG' %}" class="about-me__picture" alt="Karol Kurek">
+                   </figure>
+                   <h1 class="about-me__info--title">Hi! I'm <span class="text--purple">Karol Kurek</span> 👋</h1>
+                   <p class="about-me__info--para">
+                       I'm a <strong class="text--purple">junior fullstack python 🐍 developer </strong>
+                       with a strong passion for building Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                       Ad culpa eveniet facere inventore, ipsum itaque quaerat quam recusandae sit unde.
+                   </p>
+                   <div class="about-me__links">
+                       <a href="" class="about-me__link">
+                           <i class="fab fa-linkedin-in"></i>
+                       </a>
+                       <a href="" class="about-me__link">
+                           <i class="fab fa-github"></i>
+                       </a>
+                       <a href="" class="about-me__link">
+                           <i class="fab fa-facebook-messenger"></i>
+                       </a>
+                       <a href="" class="about-me__link">
+                           <i class="fas fa-file-pdf"></i>
+                       </a>
+                   </div>
+               </div>
+               <div>
+               <figure class="about-me__img--container">
+                   <img src="{% static 'portfolio/undraw_programming.svg' %}" class="about-me__img" alt="">
+               </figure>
+               </div>
+           </div>
+       </div>
+    </section>
 {% endblock %}
