@@ -10,13 +10,13 @@
         <nav>
             <div class="personal__logo">Karol Kurek</div>
             <ul class="nav__link--list">
-                <li>
-                    <a href="" class="nav__link--anchor link__hover--effect link__hover-effect--black">About</a>
+                <li class="nav__link">
+                    <a href="" class="nav__link--anchor link__hover-effect link__hover-effect--black">About</a>
                 </li>
-                <li>
-                    <a href="" class="nav__link--anchor link__hover--effect link__hover-effect--black">Projects</a>
+                <li class="nav__link">
+                    <a href="#projects" class="nav__link--anchor link__hover-effect link__hover-effect--black">Projects</a>
                 </li>
-                <li>
+                <li class="nav__link">
                     <a href="" class="nav__link--anchor nav__link--anchor-primary">Contact</a>
                 </li>
             </ul>
@@ -27,11 +27,11 @@
                    <figure class="about-me__picture--mask">
                        <img src="{% static 'portfolio/me.png' %}" class="about-me__picture" alt="Karol Kurek">
                    </figure>
-                   <h1 class="about-me__info--title">Hi! I'm <span class="text--purple">Karol Kurek</span> 👋</h1>
+                   <h1 class="about-me__info--title">Hi! I'm <span class="text--purple">Karol Kurek</span>&nbsp;<span class="wave">👋</span></h1>
                    <p class="about-me__info--para">
                        I'm a <strong class="text--purple">junior fullstack python 🐍 developer </strong>
-                       with a strong passion for building Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                       Ad culpa eveniet facere inventore, ipsum itaque quaerat quam recusandae sit unde.
+                       with a strong passion for building websites.
+                       Both backend and frontend give me a lot of satisfaction, so I associate the future with them.
                    </p>
                    <div class="about-me__links">
                        <a href="" class="about-me__link">
@@ -141,72 +141,30 @@
         <div class="row">
             <h2 class="section__title">Here are some last of my <span class="text--purple">projects</span></h2>
             <ul class="project__list">
+            {% for project in last_projects %}
                 <li class="project">
                     <div class="project__wrapper">
-                        <img src="{% static 'portfolio/pizza_constructor_index.png' %}" class="project__img" alt="">
+                        <img src="{{ project.image.url }}" class="project__img" alt="{{ project.title }} Demo">
                         <div class="project__description">
-                            <h3 class="project__description--title">Car sales project</h3>
-                            <h4 class="project__description--sub-title">HTML, CCSS</h4>
+                            <h3 class="project__description--title">{{ project.title }}</h3>
+                            <h4 class="project__description--sub-title">{{ project.subtitle }}</h4>
                             <p class="project__description--para">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias aspernatur aut
-                                consectetur est iusto libero magni minima nostrum nulla numquam omnis tenetur,
-                                ut vero voluptatem! Fugiat iste neque vitae.
+                                {{ project.description }}
                             </p>
                             <div class="project__description--links">
-                                <a href="" target="_blank" class="project__description--link">
+                                <a href="{{ project.github_link }}" target="_blank" class="project__description--link">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="" target="_blank" class="project__description--link">
+                                {% if project.demo_link %}
+                                <a href="{{ project.demo_link }}" target="_blank" class="project__description--link">
                                     <i class="fas fa-link"></i>
                                 </a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="project">
-                    <div class="project__wrapper">
-                        <img src="{% static 'portfolio/pizza_constructor_index.png' %}" class="project__img" alt="">
-                        <div class="project__description">
-                            <h3 class="project__description--title">Car sales project</h3>
-                            <h4 class="project__description--sub-title">HTML, CCSS</h4>
-                            <p class="project__description--para">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias aspernatur aut
-                                consectetur est iusto libero magni minima nostrum nulla numquam omnis tenetur,
-                                ut vero voluptatem! Fugiat iste neque vitae.
-                            </p>
-                            <div class="project__description--links">
-                                <a href="" target="_blank" class="project__description--link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="" target="_blank" class="project__description--link">
-                                    <i class="fas fa-link"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="project">
-                    <div class="project__wrapper">
-                        <img src="{% static 'portfolio/pizza_constructor_index.png' %}" class="project__img" alt="">
-                        <div class="project__description">
-                            <h3 class="project__description--title">Car sales project</h3>
-                            <h4 class="project__description--sub-title">HTML, CCSS</h4>
-                            <p class="project__description--para">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias aspernatur aut
-                                consectetur est iusto libero magni minima nostrum nulla numquam omnis tenetur,
-                                ut vero voluptatem! Fugiat iste neque vitae.
-                            </p>
-                            <div class="project__description--links">
-                                <a href="" target="_blank" class="project__description--link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="" target="_blank" class="project__description--link">
-                                    <i class="fas fa-link"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+            {% endfor %}
             </ul>
             <h3 class="section__learn-more"> <span class="text--purple">all projects</span> here</h3>
         </div>
