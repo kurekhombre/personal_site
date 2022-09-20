@@ -1,0 +1,65 @@
+section:nth-child(odd) {
+    background-color: #f8f8f8;
+}
+
+
+.about-me__picture--mask {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0, 0.18);
+    margin-bottom: 28px;
+    animation: animate-profile-picture 800ms 200ms backwards;
+}
+
+@keyframes animate-profile-picture {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.about-me__picture {
+    width: 100%;
+    transform: scale(1.9);
+    padding-top: 50px;
+    padding-left: 40px;
+}
+
+.about-me--section {
+    margin-bottom: 80px;
+}
+
+.about__me__sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about__me__sub--title {
+    animation: fade-up 650ms 400ms backwards;
+
+}
+
+.about__me__sub--para {
+    padding: 10px 0;
+    text-align: center;
+    animation: fade-up 650ms 600ms backwards;
+
+}
+
+.education {
+    padding: 50px 0px;
+}
+
+.section__title {
+    padding: 12px 0 ;
+}
+

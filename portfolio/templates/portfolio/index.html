@@ -2,61 +2,48 @@
 {% load static %}
 
 {% block css_files %}
-<link rel="stylesheet" href="{% static 'portfolio/portfolio-styles.css' %}"
+<link rel="stylesheet" href="{% static 'portfolio/css/home-styles.css' %}"
 {% endblock %}
 
 {% block content %}
-   <section id="about-me">
-        <nav>
-            <div class="personal__logo">Karol Kurek</div>
-            <ul class="nav__link--list">
-                <li class="nav__link">
-                    <a href="" class="nav__link--anchor link__hover-effect link__hover-effect--black">About</a>
-                </li>
-                <li class="nav__link">
-                    <a href="#projects" class="nav__link--anchor link__hover-effect link__hover-effect--black">Projects</a>
-                </li>
-                <li class="nav__link">
-                    <a href="" class="nav__link--anchor nav__link--anchor-primary">Contact</a>
-                </li>
-            </ul>
-        </nav>
+        <section id="about-me">
        <div class="flex flex-1">
            <div class="about-me__info row">
                <div class="about-me__info--container">
                    <figure class="about-me__picture--mask">
-                       <img src="{% static 'portfolio/me.png' %}" class="about-me__picture" alt="Karol Kurek">
+                       <img src="{% static 'portfolio/images/me.png' %}" class="about-me__picture" alt="Karol Kurek">
                    </figure>
                    <h1 class="about-me__info--title">Hi! I'm <span class="text--purple">Karol Kurek</span>&nbsp;<span class="wave">👋</span></h1>
                    <p class="about-me__info--para">
                        I'm a <strong class="text--purple">junior fullstack python 🐍 developer </strong>
                        with a strong passion for building websites.
                        Both backend and frontend give me a lot of satisfaction, so I associate the future with them.
+                       Learn more about me <a href="{% url 'about' %}">here</a>.
                    </p>
                    <div class="about-me__links">
-                       <a href="" class="about-me__link">
+                       <a href="https://www.linkedin.com/in/karol-kurek/" class="about-me__link">
                            <i class="fab fa-linkedin-in"></i>
                        </a>
-                       <a href="" class="about-me__link">
+                       <a href="https://github.com/kurekhombre" class="about-me__link">
                            <i class="fab fa-github"></i>
                        </a>
-                       <a href="" class="about-me__link">
+                       <a href="https://m.me/drainedsb" class="about-me__link">
                            <i class="fab fa-facebook-messenger"></i>
                        </a>
-                       <a href="" class="about-me__link">
+                       <a href="{% static 'portfolio/files/Karol_Kurek_Resume.pdf' %}" target="_blank" class="about-me__link">
                            <i class="fas fa-file-pdf"></i>
                        </a>
                    </div>
                </div>
                <figure class="about-me__img--container">
-                   <img src="{% static 'portfolio/undraw_programming.svg' %}" class="about-me__img" alt="Undraw - Programming">
+                   <img src="{% static 'portfolio/images/undraw_programming.svg' %}" class="about-me__img" alt="Undraw - Programming">
                </figure>
 
            </div>
        </div>
     </section>
 <section id="technologies">
-    <div class="container">
+    <div class="container reveal">
         <div class="row">
             <h2 class="section__title"><span class="text--purple">Tools</span>  and <span class="text--purple">Technologies</span> I use as developer</h2>
             <div class="technology__list">
@@ -137,7 +124,7 @@
     </div>
 </section>
 <section id="projects">
-    <div class="container">
+    <div class="container reveal">
         <div class="row">
             <h2 class="section__title">Here are some last of my <span class="text--purple">projects</span></h2>
             <ul class="project__list">
@@ -147,7 +134,13 @@
                         <img src="{{ project.image.url }}" class="project__img" alt="{{ project.title }} Demo">
                         <div class="project__description">
                             <h3 class="project__description--title">{{ project.title }}</h3>
-                            <h4 class="project__description--sub-title">{{ project.subtitle }}</h4>
+                            <h4 class="project__description--sub-title">
+                                {% if project.technologies %}
+                                {% for technology in project.technologies.all %}
+                                {{ technology.name }}
+                                {% endfor %}
+                                {% endif %}
+                            </h4>
                             <p class="project__description--para">
                                 {{ project.description }}
                             </p>
@@ -166,30 +159,10 @@
                 </li>
             {% endfor %}
             </ul>
-            <h3 class="section__learn-more"> <span class="text--purple">all projects</span> here</h3>
+            <h3 class="section__learn-more"> <span class="text--purple">all projects</span> <a href="{% url 'projects' %}">here</a>.</h3>
         </div>
     </div>
 </section>
-<footer>
-    <div class="row footer__row">
-        <a href="#" class="footer__anchor">
-            <figure class="footer__logo">
-                <img src="{% static 'portfolio/logo.png' %}" class="footer__logo--img" alt="Karol Kurek logo">
-            </figure>
-            <span class="footer__logo--popper">
-                Top
-                <i class="fas fa-arrow-up"></i>
-            </span>
-        </a>
-        <div class="footer__social--list">
-            <a href="" class="footer__social--link link__hover-effect link__hover-effect--white" target="_blank">Linkedin</a>
-            <a href="" class="footer__social--link link__hover-effect link__hover-effect--white" target="_blank">Github</a>
-            <a href="" class="footer__social--link link__hover-effect link__hover-effect--white" target="_blank">Messenger</a>
-            <a href="" class="footer__social--link link__hover-effect link__hover-effect--white" target="_blank">Resume</a>
-            <a href="mailto:kurekhombre@gmail.com" class="footer__social--link link__hover-effect link__hover-effect--white" target="_blank">Email</a>
-        </div>
-    <div class="footer__copyright">Made by Karol Kurek</div>
-    </div>
-</footer>
+<script src="{% static 'portfolio/js/main.js' %}"> </script>
 {% endblock %}
 

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'portfolio/css/home-styles.css' %}"/>
+<link rel="stylesheet" href="{% static 'portfolio/css/about-styles.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<section id="about">
+       <div class="flex flex-1">
+            <div class="row">
+                <h2 class="section__title">About <span class="text--purple">me</span> 👤</h2>
+                <div class="grid about-me--section">
+                       <figure class="about-me__picture--mask">
+                           <img src="{% static 'portfolio/images/tatry.JPG' %}" class="about-me__picture" alt="Karol Kurek">
+                       </figure>
+                        <div class="about__me__sub">
+                            <h2 class="about__me__sub--title">My name is Karol Kurek</h2>
+                            <p class="about__me__sub--para">Voluptatem voluptatibus! Amet autem eos illum molestias obcaecati odit
+                                praesentium quas saepe tempore! Consectetur ipsam libero quasi recusandae sed. Adipisci commodi eos id
+                                ipsum mollitia natus nihil quasi ratione, rem rerum sapiente sed tenetur. Adipisci cum dolore eligendi,
+                                id magnam nostrum quam quia repellat, repellendus, sapiente vero voluptatem! Feel free to
+                                <a class="text--purple" href="mailto:kurekhombre@gmail.com"><b>contact me</b></a>!</p>
+                       <div class="about-me__links">
+                       <a href="https://www.linkedin.com/in/karol-kurek/" class="about-me__link">
+                           <i class="fab fa-linkedin-in"></i>
+                       </a>
+                       <a href="https://github.com/kurekhombre" class="about-me__link">
+                           <i class="fab fa-github"></i>
+                       </a>
+                       <a href="https://m.me/drainedsb" class="about-me__link">
+                           <i class="fab fa-facebook-messenger"></i>
+                       </a>
+                       <a href="{% static 'portfolio/files/Karol_Kurek_Resume.pdf' %}" target="_blank" class="about-me__link">
+                           <i class="fas fa-file-pdf"></i>
+                       </a>
+                   </div>
+                    </div>
+                </div>
+
+
+        </div>
+   </div>
+    </section>
+<section class="education">
+<h2 class="section__title">Education 👨‍🎓</h2>
+</section>
+{% endblock %}
