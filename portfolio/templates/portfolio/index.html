@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'portfolio/base.html' %}
 {% load static %}
 
 {% block css_files %}
@@ -126,7 +126,7 @@
 <section id="projects">
     <div class="container reveal">
         <div class="row">
-            <h2 class="section__title">Here are some last of my <span class="text--purple">projects</span></h2>
+            <h2 class="section__title">My last <span class="text--purple">projects</span></h2>
             <ul class="project__list">
             {% for project in last_projects %}
                 <li class="project">
@@ -163,6 +163,5 @@
         </div>
     </div>
 </section>
-<script src="{% static 'portfolio/js/main.js' %}"> </script>
 {% endblock %}
 

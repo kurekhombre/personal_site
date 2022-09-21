@@ -19,16 +19,6 @@ function reveal(){
 
 
 
-// MIXITUP FILTER
-let mixerPortfolio = mixitup('.project__list', {
-    selectors: {
-        target: '.project'
-    },
-    animation: {
-        duration: 300
-    }
-});
-
 // Link Active
 const linkWork = document.querySelectorAll('.project__item')
 
@@ -38,3 +28,26 @@ function activeWork(){
 }
 
 linkWork.forEach((l=> l.addEventListener('click', activeWork)))
+
+
+/// Hamburger
+
+
+const hamburger = document.querySelector('.hamburger');
+
+const navMenu = document.querySelector('.nav-menu')
+
+const body = document.querySelector("body");
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('activeburg');
+    navMenu.classList.toggle('activeburg');
+
+    if (navMenu.classList.contains("activeburg")) {
+    // Disable scroll
+    body.style.overflow = "hidden";
+    } else {
+    // Enable scroll
+    body.style.overflow = "auto";
+    }
+})

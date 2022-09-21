@@ -223,9 +223,6 @@ footer {
 
 
 @media (max-width: 480px) {
-    .nav__link:not(:last-child) {
-        display: none;
-    }
 
     .project__description{
         padding: 0;
@@ -272,3 +269,67 @@ footer {
         transform: translateY(0);
     }
 }
+
+/*Hamburger*/
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #6030b1;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        z-index: 100;
+        margin-right: 30px;
+    }
+
+
+    .hamburger.activeburg .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.activeburg .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.activeburg .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        display: flex;
+        left: -100%;
+        top: 0;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        background-color: #f8f8f8;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 99;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-menu.activeburg{
+        left: 0;
+    }
+
+}
+
